@@ -1,4 +1,4 @@
-package 每日一题;
+package c_栈和队列.栈;
 
 import java.util.Stack;
 
