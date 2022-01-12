@@ -32,7 +32,8 @@ public class BSearch {
             } else if (a[mid] < value) {
                 low = mid + 1;
             } else {
-                if ((mid == 0) || (a[mid - 1] != value)) return mid;
+                if ((mid == 0) || (a[mid - 1] != value))
+                    return mid;
                 else high = mid - 1;
             }
         }
@@ -46,7 +47,8 @@ public class BSearch {
         while (low <= high) {
             int mid =  low + ((high - low) >> 1);
             if (a[mid] >= value) {
-                if ((mid == 0) || (a[mid - 1] < value)) return mid;
+                if ((mid == 0) || (a[mid - 1] < value))
+                    return mid;
                 else high = mid - 1;
             } else {
                 low = mid + 1;

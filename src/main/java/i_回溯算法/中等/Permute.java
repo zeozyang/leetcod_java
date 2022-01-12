@@ -24,7 +24,7 @@ public class Permute {
      * @param used 在一次全排列中被用过的元素
      * @param res  所有可能的全排列
      */
-        // 1.设计好递归函数的「入参」和「出参」
+    // 1.设计好递归函数的「入参」和「出参」
     private void dfs(int[] nums, Stack<Integer> path, boolean[] used, List<List<Integer>> res) {
         // 2.设置好递归函数的出口（Base Case）
         if (path.size() == nums.length) {
@@ -44,6 +44,11 @@ public class Permute {
                 path.pop();
             }
         }
+    }
+
+    public static void main(String[] args) {
+        Permute permute = new Permute();
+        System.out.println(permute.permute(new int[]{1, 2, 3}));
     }
 }
 

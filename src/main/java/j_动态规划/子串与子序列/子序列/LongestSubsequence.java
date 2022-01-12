@@ -1,11 +1,11 @@
-package j_动态规划.连续字串;
+package j_动态规划.子串与子序列.子序列;
 
 import java.util.HashMap;
 
 /**
  * @author yang 2021-12-28 8:51
  */
-public class LongestSubsequence { // 与之前的子子串题不同，这题可以删除元素
+public class LongestSubsequence { // 与之前的子子串题不同，子序列可以删除元素
     public int longestSubsequence(int[] arr, int difference) {
         int ans = 1;
         HashMap<Integer, Integer> dp = new HashMap<>(); //dp[i]：以arr[i]结尾的最长等差子序列的长度

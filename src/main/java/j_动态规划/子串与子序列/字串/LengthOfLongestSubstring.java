@@ -1,4 +1,4 @@
-package j_动态规划.连续字串;
+package j_动态规划.子串与子序列.字串;
 
 import java.util.Arrays;
 import java.util.HashMap;

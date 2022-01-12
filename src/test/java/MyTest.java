@@ -83,5 +83,7 @@ public class MyTest {
         System.out.println(list2.remove(0));
         System.out.println(list2.remove(0));
         System.out.println(list2);
+
+        System.out.println(1/2);
     }
 }
