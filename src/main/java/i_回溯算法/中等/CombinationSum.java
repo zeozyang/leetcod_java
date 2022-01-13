@@ -1,6 +1,7 @@
 package i_回溯算法.中等;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
@@ -10,6 +11,7 @@ import java.util.Stack;
 public class CombinationSum {
 
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        Arrays.sort(candidates);
         Stack<Integer> path = new Stack<>();
         int begin = 0;
         List<List<Integer>> res = new ArrayList<>();
@@ -26,9 +28,7 @@ public class CombinationSum {
      * @param res        结果集列表
      */
     private void dfs(int[] candidates, int target, Stack<Integer> path, int begin, List<List<Integer>> res) {
-        // target 减为负数和 0 的时候不再产生新的孩子结点
-        if (target < 0) return;
-
+        // 由于进入更深层的时候，小于 0 的部分被剪枝，因此递归终止条件值只判断等于 0 的情况
         if (target == 0) {
             res.add(new ArrayList<>(path));
             return;
@@ -36,6 +36,10 @@ public class CombinationSum {
 
         // 重点理解这里从 begin 开始搜索的语意
         for (int i = begin; i < candidates.length; i++) {
+            // 大剪枝
+            if (target - candidates[i] < 0)
+                break;
+
             path.push(candidates[i]);
 
             // 注意：下一轮搜索的起点是 i，即从每一层的第 2 个结点开始，都不能再搜索之前同一层结点已经使用过的 candidate 里的元素。

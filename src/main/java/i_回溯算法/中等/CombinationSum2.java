@@ -7,10 +7,9 @@ import java.util.*;
  */
 public class CombinationSum2 {
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        Arrays.sort(candidates); // 关键步骤
         Stack<Integer> path = new Stack<>();
         List<List<Integer>> res = new ArrayList<>();
-        // 关键步骤
-        Arrays.sort(candidates);
 
         dfs(candidates, target, path, 0, res);
         return res;

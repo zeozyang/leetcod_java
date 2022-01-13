@@ -33,12 +33,12 @@ public class Permute {
         }
 
         // 3.编写「最小单元」处理逻辑
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < nums.length; i++) { // 这行的for循环要遍历递归树的本层
             if (!used[i]) { // 在还未选择的数中依次选择一个元素作为下一个位置的元素。
                 path.push(nums[i]);
                 used[i] = true;
 
-                dfs(nums, path, used, res);
+                dfs(nums, path, used, res); // 这行才要进入递归树的下一层
 
                 used[i] = false;
                 path.pop();
