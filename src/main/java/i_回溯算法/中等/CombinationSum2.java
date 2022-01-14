@@ -29,11 +29,11 @@ public class CombinationSum2 {
         }
 
         for (int i = begin; i < candidates.length; i++) {
-            // 大剪枝：减去 candidates[i] 小于 0，减去后面的 candidates[i + 1] 肯定也小于 0，因此用 break
+            // 大剪枝：减去 candidates[i] 小于 0，减去后面的 candidates[i + 1] 肯定也小于 0，因此用 break。作用是提高效率
             if (target - candidates[i] < 0)
                 break;
 
-            // 小剪枝：同一层相同数值的结点，从第 2 个开始，结果一定发生重复，因此跳过，用 continue
+            // 小剪枝：同一层相同数值的结点，从第 2 个开始，结果一定发生重复，因此跳过，用 continue。作用候选数组是只能使用一次
             if (i > begin && candidates[i] == candidates[i - 1])
                 continue;
 

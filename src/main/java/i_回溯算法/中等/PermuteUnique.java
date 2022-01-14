@@ -45,7 +45,7 @@ public class PermuteUnique {
 
 /*
 47. 全排列 II
-给定一个可包含重复数字的序列 nums ，按任意顺序 返回所有不重复的全排列。
+给定一个 可包含重复数字 的序列 nums ，按任意顺序 返回所有不重复的全排列。
 https://leetcode-cn.com/problems/permutations-ii/solution/hui-su-suan-fa-python-dai-ma-java-dai-ma-by-liwe-2/
 
 示例 1：

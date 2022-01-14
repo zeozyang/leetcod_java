@@ -25,22 +25,12 @@ public class Combine {
         // 遍历可能的搜索起点
         for (int i = begin; i <= n; i++) {
             path.push(i);
-            System.out.println("  递归之前 => " + path);
 
             // 下一轮搜索，设置的搜索起点要加 1，因为组合数理不允许出现重复的元素
             dfs(n, k, path, i + 1, res);
 
             path.pop();
-            System.out.println("递归之后 => " + path);
         }
-    }
-
-    public static void main(String[] args) {
-        Combine solution = new Combine();
-        int n = 4;
-        int k = 2;
-        List<List<Integer>> res = solution.combine(n, k);
-        System.out.println(res);
     }
 }
 
