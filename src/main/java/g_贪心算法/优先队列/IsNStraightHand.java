@@ -1,7 +1,5 @@
 package g_贪心算法.优先队列;
 
-import java.util.Comparator;
-import java.util.HashMap;
 import java.util.PriorityQueue;
 
 /**
@@ -9,20 +7,15 @@ import java.util.PriorityQueue;
  */
 public class IsNStraightHand {
     public boolean isNStraightHand(int[] hand, int groupSize) {
-        HashMap<Integer, Integer> map = new HashMap<>(); //数组中的每个元素出现的次数
-        PriorityQueue<Integer> queue = new PriorityQueue<>(Comparator.comparingInt(a -> a));
-        for (int i : hand) {
-            map.put(i, map.getOrDefault(i, 0) + 1);
-            queue.add(i);
-        }
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        for (int card : hand)
+            pq.offer(card);
 
-        while (!queue.isEmpty()) {
-            Integer head = queue.poll();
-            if (map.get(head) == 0) continue;
+        while (!pq.isEmpty()) {
+            Integer head = pq.peek();
             for (int i = 0; i < groupSize; i++) {
-                Integer a = map.getOrDefault(head + i, 0);
-                if (a == 0) return false;
-                map.put(head + i, a - 1);
+                if (!pq.remove(head + i))
+                    return false;
             }
         }
         return true;

@@ -8,24 +8,25 @@ import java.util.PriorityQueue;
  */
 public class EatenApples {
     public int eatenApples(int[] apples, int[] days) {
-        PriorityQueue<int[]> q = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
-        int n = apples.length, time = 0, ans = 0; //time 为当前时间，ans 为吃到的苹果数量
+        //pq:优先队列，存放着某天生产的苹果个数，和这些按苹果的最后食用日期。
+        PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[1]));
+        int now = 0, ans = 0; //now:当前时间。ans:吃到的苹果数量。
 
-        while (time < n || !q.isEmpty()) { //「还有苹果未被生成」对应前n天，或者「未必吃掉」对应n天之后，继续模拟。
-            if (time < n && apples[time] > 0) // 二元组表示 (最后食用日期, 当日产生苹果数量)
-                q.add(new int[]{time + days[time] - 1, apples[time]});
+        while (now < days.length || !pq.isEmpty()) { //一次循环代表一天
+            if (now < days.length && apples[now] > 0) //入队,收集当天的苹果
+                pq.add(new int[]{apples[now], now + days[now] - 1});
 
-            while (!q.isEmpty() && q.peek()[0] < time) // 如果这一批苹果已过期，则抛弃
-                q.poll();
-            if (!q.isEmpty()) { // 如果吃掉cur一个苹果后，仍有剩余，将cur重新入堆；
-                int[] cur = q.poll();
-                if (--cur[1] > 0) // i++是先访问i然后再自增,而++i则是先自增然后再访问i的值
-                    q.add(cur);
+            //出队，吃苹果
+            while (!pq.isEmpty() && pq.peek()[1] < now) //先把过期的苹果扔掉
+                pq.remove();
+            if (!pq.isEmpty()) {
+                int[] cur = pq.remove();
+                if (--cur[0] > 0) // 如果吃掉cur一个苹果后，仍有剩余，将cur重新入堆
+                    pq.add(cur);
                 ans++;
             }
-            time++;
+            now++;
         }
-
         return ans;
     }
 }
