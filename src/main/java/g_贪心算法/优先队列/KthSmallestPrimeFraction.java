@@ -6,7 +6,7 @@ import java.util.PriorityQueue;
 /**
  * @author yang 2022-01-14 12:17
  */
-public class KthSmallestPrimeFraction { //373. 查找和最小的K对数字 的杨彪理解版，写的比较简单
+public class KthSmallestPrimeFraction { //373. 查找和最小的K对数字 的我自己理解版，写的比较简单
     public int[] kthSmallestPrimeFraction(int[] arr, int k) {
         PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingDouble(a -> (double) arr[a[0]] / arr[a[1]]));
 
