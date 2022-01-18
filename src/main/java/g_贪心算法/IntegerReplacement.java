@@ -7,10 +7,10 @@ public class IntegerReplacement {
     public int integerReplacement(int n) {
         int count = 0;
         while (n != 1) {
-            if ((n & 1) == 0)
+            if ((n & 1) == 0) //如果二进制末尾是0，就除2
                 n >>= 1;
             else {
-                if ( n != 3 && ((n >> 1) & 1) == 1)
+                if ( n != 3 && ((n >> 1) & 1) == 1) //只要次低位为 1（存在连续段），应当优先使用 +1 操作
                     n++;
                 else n--;
             }

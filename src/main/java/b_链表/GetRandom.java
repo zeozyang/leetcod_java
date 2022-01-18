@@ -19,8 +19,8 @@ class Solution {
     }
 
     public int getRandom() {
-        int idx = random.nextInt(list.size());
-        return list.get(idx);
+        int index = random.nextInt(list.size());
+        return list.get(index);
     }
 }
 
