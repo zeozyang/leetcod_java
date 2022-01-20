@@ -3,17 +3,16 @@ package i_回溯算法.DFS;
 import e_树.TreeNode;
 
 /**
- * @author yang 2021-07-27 9:18
+ * @author yang 2021-07-27 9:18 于22-1-19 9:39 重写
  */
 public class LowestCommonAncestor1 {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        while (root != null) {
-            if (root.val < p.val && root.val < q.val) // p,q 都在 root 的右子树中
-                root = root.right; // 遍历至右子节点
-            else if (root.val > p.val && root.val > q.val) // p,q 都在 root 的左子树中
-                root = root.left; // 遍历至左子节点
-            else break;
-        }
+        if (p.val == root.val) return p;
+        else if (q.val == root.val) return q;
+        else if (p.val < root.val && q.val < root.val)
+            return lowestCommonAncestor(root.left, p, q);
+        else if (p.val > root.val && q.val > root.val)
+            return lowestCommonAncestor(root.right, p, q);
         return root;
     }
 }

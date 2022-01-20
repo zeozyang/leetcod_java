@@ -85,5 +85,10 @@ public class MyTest {
         System.out.println(list2);
 
         System.out.println(1/2);
+
+        System.out.println((int) 1e9 + 7);
+        System.out.println(1776894990 % (int) 1e9 + 7);
+        System.out.println(1776894990 / (int) 1e9 + 7);
+        System.out.println(1776894990 - (int) 1e9 + 7);
     }
 }

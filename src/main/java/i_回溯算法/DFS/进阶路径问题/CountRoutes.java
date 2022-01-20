@@ -1,4 +1,4 @@
-package i_回溯算法.DFS;
+package i_回溯算法.DFS.进阶路径问题;
 
 import java.util.Arrays;
 
@@ -32,15 +32,15 @@ public class CountRoutes {
      * @return 在位置 u 出发，油量为 fuel 的前提下，到达 end 的「路径数量」
      */
     int dfs(int[] ls, int u, int end, int fuel) {
-        // 如果缓存器中已经有答案，直接返回
-        if (cache[u][fuel] != -1)
-            return cache[u][fuel];
-
         // 如果一步到达不了，说明从位置 u 不能到达 end 位置
         // 将结果 0 写入缓存器并返回
         int need = Math.abs(ls[u] - ls[end]);
         if (need > fuel)
             return cache[u][fuel] = 0;
+
+        // 如果缓存器中已经有答案，直接返回
+        if (cache[u][fuel] != -1)
+            return cache[u][fuel];
 
         int n = ls.length;
         // 计算油量为 fuel，从位置 u 到 end 的路径数量
