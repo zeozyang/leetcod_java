@@ -87,8 +87,15 @@ public class MyTest {
         System.out.println(1/2);
 
         System.out.println((int) 1e9 + 7);
-        System.out.println(1776894990 % (int) 1e9 + 7);
-        System.out.println(1776894990 / (int) 1e9 + 7);
-        System.out.println(1776894990 - (int) 1e9 + 7);
+        System.out.println(Integer.MAX_VALUE);
+
+        int[] ints = new int[1 + 1];
+        Arrays.fill(ints,3);
+        System.out.println(Arrays.toString(ints));
+
+        int aa = 'a';
+        int zz = 'z';
+        System.out.println(aa);
+        System.out.println(zz);
     }
 }

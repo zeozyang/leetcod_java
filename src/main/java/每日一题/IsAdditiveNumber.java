@@ -44,6 +44,11 @@ class IsAdditiveNumber {
 
         return false;
     }
+
+    public static void main(String[] args) {
+        IsAdditiveNumber a = new IsAdditiveNumber();
+        a.isAdditiveNumber("199100199");
+    }
 }
 
 /*
