@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author yang 2021-07-12 21:38
@@ -97,5 +99,14 @@ public class MyTest {
         int zz = 'z';
         System.out.println(aa);
         System.out.println(zz);
+
+        String content = "80  47.92.125.221  953\n" +
+                "84  39.100.88.90  950\n" +
+                "85  39.100.67.137  949";
+        Pattern pattern = Pattern.compile("\\d+\\.\\d+\\.\\d+\\.\\d+");
+        Matcher matcher = pattern.matcher(content);
+        while (matcher.find()) {
+            System.out.println(matcher.group());
+        }
     }
 }
