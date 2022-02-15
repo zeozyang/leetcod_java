@@ -108,5 +108,14 @@ public class MyTest {
         while (matcher.find()) {
             System.out.println(matcher.group());
         }
+
+        ArrayList<Integer> a12 = new ArrayList<>();
+        a12.add(1);
+        a12.add(2);
+        ArrayList<Integer> a23 = new ArrayList<>();
+        a23.add(2);
+        a23.add(3);
+        a12.retainAll(a23);
+        System.out.println(a12);
     }
 }
