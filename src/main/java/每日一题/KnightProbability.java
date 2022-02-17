@@ -8,13 +8,11 @@ public class KnightProbability {
 
     public double knightProbability(int n, int k, int row, int column) {
         double[][][] dp = new double[n][n][k + 1];
-        //base case
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 dp[i][j][0] = 1;
             }
         }
-
         for (int p = 1; p <= k; p++) {
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
