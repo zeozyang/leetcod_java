@@ -1,4 +1,4 @@
-package 每日一题;
+package j_动态规划.路径问题.基础;
 
 /**
  * @author yang 2022-02-17 9:07
@@ -15,7 +15,7 @@ public class KnightProbability {
             }
         }
 
-        for (int p = 1; p <= k; p++) {
+        for (int p = 1; p <= k; p++) { //注意要先遍历p，原因还不明白，抄的
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
                     for (int[] dir : dirs) {
@@ -30,7 +30,7 @@ public class KnightProbability {
     }
 }
 /*
-688. 骑士在棋盘上的概率
+688. 骑士在棋盘上的概率  22/2/17 每日一题
 在一个 n x n 的国际象棋棋盘上，一个骑士从单元格 (row, column) 开始，并尝试进行 k 次移动。行和列是 从 0 开始 的，所以左上单元格是 (0,0) ，右下单元格是 (n - 1, n - 1) 。
 象棋骑士有8种可能的走法，如下图所示。每次移动在基本方向上是两个单元格，然后在正交方向上是一个单元格。
 
