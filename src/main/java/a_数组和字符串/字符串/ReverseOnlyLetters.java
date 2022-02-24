@@ -7,7 +7,7 @@ import java.util.Deque;
  * @author yang 2022-02-23 8:54
  */
 public class ReverseOnlyLetters {
-    public String reverseOnlyLetters(String s) { //前后双指针
+    public String reverseOnlyLetters(String s) {
         char[] chars = s.toCharArray();
         StringBuilder charList = new StringBuilder();
         Deque<Integer> indexList = new ArrayDeque<>();
@@ -18,13 +18,10 @@ public class ReverseOnlyLetters {
             }
         }
         StringBuilder reverse = charList.reverse();
-        int stringIndex = 0;
-        for (int i = 0; i < chars.length; i++) {
-            if (!indexList.isEmpty() && i == indexList.peekFirst()) {
-                indexList.removeFirst();
-                chars[i] = reverse.charAt(stringIndex);
-                stringIndex++;
-            }
+        int i = 0;
+        for (Integer index : indexList) {
+            chars[index] = reverse.charAt(i);
+            i++;
         }
         return String.valueOf(chars);
     }
