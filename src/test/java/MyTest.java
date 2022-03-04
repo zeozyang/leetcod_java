@@ -117,5 +117,15 @@ public class MyTest {
         a23.add(3);
         a12.retainAll(a23);
         System.out.println(a12);
+
+        for (int i = 0; i < 3; i++) {
+            System.out.println("for " + i);
+        }
+
+        int j = 0;
+        while (j < 3) {
+            j++;
+            System.out.println("while" + j);
+        }
     }
 }
