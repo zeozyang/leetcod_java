@@ -5,12 +5,12 @@ package j_动态规划.子串与子序列.子序列;
  */
 public class IncreasingTriplet {
     public boolean increasingTriplet(int[] nums) {
-        int[] tails = new int[nums.length]; // tails[i]：长度为 i 的最长上升子序列的末尾元素的最小值
+        int[] tails = new int[nums.length]; // tails[i]：长度为 i + 1 的最长上升子序列的末尾元素的最小值
 
         int res = 0; // res 为 tails 当前长度
         for (int num : nums) {
             int i = 0, j = res;
-            while (i < j) {
+            while (i < j) { // 二分查找，在tails[]中查找第一个比num大的元素下标。如果没有，i就等于tails的有效下标的下一位
                 int m = (i + j) / 2;
                 if (tails[m] < num)
                     i = m + 1;

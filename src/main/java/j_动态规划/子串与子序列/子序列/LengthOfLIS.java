@@ -8,20 +8,23 @@ import java.util.Arrays;
 public class LengthOfLIS { // 最长递增子序列
     public int lengthOfLIS(int[] nums) { // 动态规划解法
         int[] dp = new int[nums.length]; // dp[i]：以 nums[i] 结尾的递增子序列的长度。
+        int res = 1;
 
         Arrays.fill(dp, 1);
         for (int i = 1; i < nums.length; i++) {
             for (int j = 0; j < i; j++) {
-                if (nums[j] < nums[i])
+                if (nums[j] < nums[i]) {
                     dp[i] = Math.max(dp[i], dp[j] + 1);
+                }
             }
+            res = Math.max(res, dp[i]);
         }
 
-        return Arrays.stream(dp).max().getAsInt();
+        return res;
     }
 
     public int lengthOfLISNlogN(int[] nums) { // 贪心解法+二分查找，时间复杂度比较低
-        int[] tails = new int[nums.length]; // tails[i]：长度为 i 的最长上升子序列的末尾元素的最小值
+        int[] tails = new int[nums.length]; // tails[i]：长度为 i + 1 的最长上升子序列的末尾元素的最小值
 
         int res = 0; // res 为 tails 当前长度
         for (int num : nums) {
