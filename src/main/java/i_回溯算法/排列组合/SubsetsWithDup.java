@@ -1,4 +1,4 @@
-package i_回溯算法.中等;
+package i_回溯算法.排列组合;
 
 import java.util.ArrayList;
 import java.util.Arrays;
